@@ -14,6 +14,7 @@ on:
   workflow_dispatch:
 env:
  PLATFORM: win64
+ WIRESHARK_BASE_DIR: D:/a/wireshark-build/wireshark-build/
 jobs:
   build:
     runs-on: windows-2022
