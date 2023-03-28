@@ -30,7 +30,7 @@ jobs:
           # what platform are you installing for? desktop, winrt, android, or ios
           platform: desktop
       - name: other pkg
-        run:  choco install -y asciidoctorj xsltproc docbook-bundle winflexbison3 activeperl
+        run:  choco install -y asciidoctorj xsltproc docbook-bundle winflexbison3
       - name: mkdir
         shell: cmd
         run: | 
