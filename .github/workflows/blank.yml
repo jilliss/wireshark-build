@@ -21,23 +21,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: wireshark/wireshark
-      - name: mkdir
-        shell: cmd
-        run: | 
-          mkdir wsbuild64
-          cd wsbuild64
-          pwd
-          ls D:/a/wireshark-build/wireshark-build/
-#       - name: Install Qt6
-#         uses: jurplel/install-qt-action@v3.1.0
-#         with:
-#           version: 6.2.1
-#           # install os; linux, windows, or mac
-#           os: windows
-#           # what platform are you installing for? desktop, winrt, android, or ios
-#           platform: desktop
-#       - name: other pkg
-#         run:  choco install -y asciidoctorj xsltproc docbook-bundle winflexbison3
 #       - name: mkdir
 #         shell: cmd
 #         run: | 
@@ -45,14 +28,31 @@ jobs:
 #           cd wsbuild64
 #           pwd
 #           ls D:/a/wireshark-build/wireshark-build/
-#           cmake -G "Visual Studio 17 2022" -A x64 ..\wireshark
-#       - name: build-source
-#         shell: cmd
-#         run: | 
-#           msbuild /m /p:Configuration=RelWithDebInfo Wireshark.sln
-#       - name: ls
-#         shell: cmd
-#         run: | 
-#           ls run\RelWithDebInfo\  
+      - name: Install Qt6
+        uses: jurplel/install-qt-action@v3.1.0
+        with:
+          version: 6.2.1
+          # install os; linux, windows, or mac
+          os: windows
+          # what platform are you installing for? desktop, winrt, android, or ios
+          platform: desktop
+      - name: other pkg
+        run:  choco install -y asciidoctorj xsltproc docbook-bundle winflexbison3
+      - name: mkdir
+        shell: cmd
+        run: | 
+          mkdir wsbuild64
+          cd wsbuild64
+          pwd
+          ls D:/a/wireshark-build/wireshark-build/
+          cmake -G "Visual Studio 17 2022" -A x64 ..\wireshark-build
+      - name: build-source
+        shell: cmd
+        run: | 
+          msbuild /m /p:Configuration=RelWithDebInfo Wireshark.sln
+      - name: ls
+        shell: cmd
+        run: | 
+          ls run\RelWithDebInfo\  
 
 
