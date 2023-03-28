@@ -44,7 +44,7 @@ jobs:
           mkdir wsbuild64
           cd wsbuild64
           pwd 
-          cmake -G "Visual Studio 17 2022" -A x64 /d/a/wireshark-build/wireshark-build/
+          cmake -G "Visual Studio 17 2022" -A x64 D:/a/wireshark-build/wireshark-build/
       - name: build-source
         shell: cmd
         run: | 
